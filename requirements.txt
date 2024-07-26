@@ -42,3 +42,4 @@ matplotlib
 django-jazzmin 
 geopy
 bs4
+scikit-learn

@@ -43,7 +43,6 @@ def get_weather_data(latitude, longitude):
         print(f"Error from WeatherAPI: {data['error']['message']}")
         return None
 
-    print(f"WeatherAPI Response: {data}")
    
     weather_data = {
         'city': data['location']['name'],

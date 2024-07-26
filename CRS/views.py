@@ -61,6 +61,7 @@ class CropRecomendationApiView(APIView):
         landId = crop_data.get('landId')
 
         try:
+            print(crop_data)
             # Fetch Landmark object based on user and landId
             landmark = Landmark.objects.get(user=user, landId=landId)
 
@@ -76,15 +77,15 @@ class CropRecomendationApiView(APIView):
 
             # Fetch weather data based on the median coordinates
             weather_data = get_weather_data(median_latitude, median_longitude)
-
             if weather_data:
+                print("check")
                 # Process crop recommendation data using weather data
                 n = crop_data.get('nitrogen')
                 p = crop_data.get('phosphorus')
                 k = crop_data.get('potassium')
                 ph = crop_data.get('ph')
                 prediction = get_prediction(N=n, P=p, K=k, temperature=weather_data['temp_c'], humidity=weather_data['humidity'], ph=ph, rainfall=weather_data['rainfall'], request=request)
-
+                print(prediction)
                 # Prepare data for serialization
                 data = { 
                     "user": user,
@@ -110,12 +111,14 @@ class CropRecomendationApiView(APIView):
                     }, status=status.HTTP_201_CREATED)
 
             else:
+                print("bug")
                 return Response({'success': False, 'message': 'Weather data not available'}, status=status.HTTP_400_BAD_REQUEST)
 
         except Landmark.DoesNotExist:
             return Response({'success': False, 'message': 'Landmark not found'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            return Response({'success': False, 'message': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            print(str(e))
+            return Response({'success': False, 'message': str(e)}, status=status.HTTP_200_OK)
 
 
 class CropYieldPredictionView(APIView):
