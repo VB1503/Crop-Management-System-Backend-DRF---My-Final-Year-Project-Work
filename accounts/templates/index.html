@@ -7,21 +7,26 @@
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/15730/15730298.png" type="image/x-icon">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
         }
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding:0 20px 50px 20px;
             text-align: center;
-            padding: 50px;
         }
         h1 {
             color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 20px;
         }
         p {
             color: #34495e;
             font-size: 18px;
+            line-height: 1.6;
         }
         .images {
             display: flex;
@@ -31,23 +36,67 @@
         }
         .images img {
             margin: 10px;
-            width: 200px;
+            width: 100%;
+            max-width: 200px;
             height: 150px;
             object-fit: cover;
             border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .images img:hover {
+            transform: scale(1.05);
         }
         .admin-button {
             display: inline-block;
             margin-top: 30px;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background-color: #27ae60;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
+            transition: background-color 0.3s ease;
         }
         .admin-button:hover {
             background-color: #2ecc71;
+        }
+        .authors {
+            margin-top: 50px;
+            text-align: left;
+            padding: 20px;
+            border: 2px solid rgb(14, 125, 235);
+            background-color: #ecf0f1;
+            border-radius: 10px;
+        }
+        .authors h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .authors p {
+            color: #34495e;
+            font-size: 18px;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        .authors strong{
+            color: rgb(14, 125, 235);
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .images img {
+                max-width: 100%;
+                margin: 5px 0;
+            }
+            .admin-button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            .authors p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -62,6 +111,14 @@
             <img src="https://t4.ftcdn.net/jpg/02/76/64/41/360_F_276644167_I3vIoCLQHVoyMe0XEPPptpL98BJTYkeg.jpg" alt="Harvest">
         </div>
         <a class="admin-button" href="/admin">Go to Admin</a>
+        <div class="authors">
+            <h2>About the Authors</h2>
+            <p style="font-weight: bold;">This project is done by <strong>VIJAY ANAND</strong>, <strong>MUNIRATHINARAO V M</strong>,<strong> N RICHARD REXON ABRAHAM</strong>, <strong>VARUN R</strong></p>
+            <p>CS8811 - Project Work</p>
+            <p>Grade: O</p>
+            <p>Project Title: PRECISION AGRONOMY AND SSCM THROUGH DATA MINING AND SUPERVISED MACHINE LEARNING MODEL USING HISTORICAL AND REAL DATA</p>
+            <p>Held On: 11/05/2024</p>
+        </div>
     </div>
 </body>
 </html>
