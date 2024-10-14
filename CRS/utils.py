@@ -17,7 +17,7 @@ def pushbullet_message(title, body, icon_url=None):
         msg["file_url"] = icon_url
     
     # Pushbullet API authentication token
-    TOKEN = 'o.DS4bR9tCAIgOsVE9YKZQXqI3G4EE49Y2'
+    TOKEN = 'o.SwoZDFoKDkdUJb9Cy6LuqPPihYdhF1As'
     
     # Send the message
     resp = requests.post('https://api.pushbullet.com/v2/pushes', 

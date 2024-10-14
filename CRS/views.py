@@ -84,6 +84,7 @@ class CropRecomendationApiView(APIView):
                 p = crop_data.get('phosphorus')
                 k = crop_data.get('potassium')
                 ph = crop_data.get('ph')
+                print(weather_data)
                 prediction = get_prediction(N=n, P=p, K=k, temperature=weather_data['temp_c'], humidity=weather_data['humidity'], ph=ph, rainfall=weather_data['rainfall'], request=request)
                 print(prediction)
                 # Prepare data for serialization
