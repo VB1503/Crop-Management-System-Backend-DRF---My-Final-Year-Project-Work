@@ -9,10 +9,7 @@ The **Crop Recommendation and Yield Prediction System** is a comprehensive platf
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Performance Evaluation and Results](#performance-evaluation-and-results)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Figures and Visualizations](#figures-and-visualizations)
-- [License](#license)
+
 
 ## Introduction
 
