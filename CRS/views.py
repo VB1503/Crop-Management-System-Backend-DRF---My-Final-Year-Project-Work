@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from pusher import Pusher
 from .utils import get_weather_data,pushbullet_message
 import os
+from django.shortcuts import get_object_or_404
 from django.conf import settings
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
@@ -52,6 +53,22 @@ class ListCreateLandmarkAPIView(GenericAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class DeleteLandmarkAPIView(GenericAPIView):
+    queryset = Landmark.objects.all()
+    serializer_class = LandmarkSerializer
+
+    def delete(self, request, *args, **kwargs):
+        user_id = kwargs.get('user_id')  # Get user_id from URL or request kwargs
+        land_id = kwargs.get('landId')  # Get landId from URL or request kwargs
+
+        # Fetch the Landmark object that matches both user_id and landId
+        landmark = get_object_or_404(Landmark, user_id=user_id, landId=land_id)
+
+        # Delete the landmark
+        landmark.delete()
+
+        # Return success response
+        return Response({"message": "Landmark deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 class CropRecomendationApiView(APIView):
     serializer_class = CropRecommendationSerializer
 
