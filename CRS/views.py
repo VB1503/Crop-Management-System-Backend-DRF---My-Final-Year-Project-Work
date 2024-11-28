@@ -10,7 +10,6 @@ from rest_framework.views import APIView
 from .models import Landmark
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from pusher import Pusher
 from .utils import get_weather_data
 import os
 from django.shortcuts import get_object_or_404
@@ -18,7 +17,6 @@ from django.conf import settings
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from django.views import View
-from pusher import Pusher
 import threading
 import time
 
@@ -49,7 +47,6 @@ class ListCreateLandmarkAPIView(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            pushbullet_message(title="Land Coords", body=f"{serializer.data}")
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -185,7 +182,6 @@ class CropYieldPredictionView(APIView):
                                          avg_temp=weather_data['temp_c'],
                                          avg_rainfall=weather_data['rainfall'])
 
-                # Send push notification
                 
 
                 return Response({
