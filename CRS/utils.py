@@ -8,28 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 # Load the Random Forest model from the pickle file
-def pushbullet_message(title, body, icon_url=None):
-    # Create message payload
-    msg = {"type": "note", "title": title, "body": body}
-    
-    # If an icon URL is provided, include it in the message payload
-    if icon_url:
-        msg["file_url"] = icon_url
-    
-    # Pushbullet API authentication token
-    TOKEN = 'o.SwoZDFoKDkdUJb9Cy6LuqPPihYdhF1As'
-    
-    # Send the message
-    resp = requests.post('https://api.pushbullet.com/v2/pushes', 
-                         data=json.dumps(msg),
-                         headers={'Authorization': 'Bearer ' + TOKEN,
-                                  'Content-Type': 'application/json'})
-    
-    # Check the response status code
-    if resp.status_code != 200:
-        raise Exception('Error', resp.status_code)
-    else:
-        print('Message sent')
+
 
 def get_weather_data(latitude, longitude):
     api_key = '31a8d1a6588a42a78ff115005242702'  # Replace with your WeatherAPI key
