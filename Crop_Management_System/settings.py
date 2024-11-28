@@ -100,7 +100,7 @@ SIMPLE_JWT = {
 DOMAIN = config('DOMAIN', default='localhost:5173')
 SITE_NAME = config('SITE_NAME', default='Digichola')
 
-GOOGLE_SIGNUP_PASS='pbkdf2_sha256$720000$2V7c64hBGQW1WUfZOfrazm$BTtOVvs7uVQBR6j3LM42c7Qneh4NopstWS5FVqhOasc='
+GOOGLE_SIGNUP_PASS='pbkdf2_sha256$870000$EzW7C2EfKc7RPxNE6q5o66$LlzjMeU41PvrkX/e61yrOm7anHhaRicS5CJoIVYg6+s='
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
